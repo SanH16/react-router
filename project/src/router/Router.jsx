@@ -9,6 +9,7 @@ import PrivateRouter from "./PrivateRouter";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRouter from "./ProtectedRouter";
 import AddProductPages from "../pages/AddProductPages";
+import TaskPages from "../pages/TaskPages";
 
 function Router() {
   return (
@@ -29,6 +30,8 @@ function Router() {
         <Route path="/404" element={<NotFoundPages />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
+
+      <Route path="/task" element={<TaskPages />} />
 
       {/* Validate Route login */}
       {/* <Route

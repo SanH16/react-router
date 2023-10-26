@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 
 function LoginPage() {
   const navigate = useNavigate();
-
+  const { search } = useLocation();
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -20,7 +20,16 @@ function LoginPage() {
       if (res.status === 400) return alert("your username or password is wrong");
       const { token } = await res.json();
       auth.storeAuthCredential(token);
-      return navigate("/");
+
+      let returnTo = "/";
+      const params = new URLSearchParams(search);
+      const redirectTo = params.get("return_to");
+
+      if (returnTo) {
+        returnTo += redirectTo;
+      }
+
+      return navigate(returnTo);
     });
   };
   return (

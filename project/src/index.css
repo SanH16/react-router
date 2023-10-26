@@ -15,8 +15,10 @@
   padding: 10px 20px;
   width: 50%;
 }
+
 body {
-  margin: 0% 10%;
+  width: auto;
+  margin: 0 10%;
 }
 
 .products {

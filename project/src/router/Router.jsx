@@ -18,6 +18,16 @@ function Router() {
         <Route path="/404" element={<NotFoundPages />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Route>
+
+      {/* Validate Route login */}
+      {/* <Route
+        path="/users"
+        render={() => {
+          {
+            isLoggedIn ? <ComponentUsers /> : <Redirect to="/login" />;
+          }
+        }}
+      /> */}
     </Routes>
   );
 }

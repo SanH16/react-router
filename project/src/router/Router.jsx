@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import PrivateRouter from "./PrivateRouter";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRouter from "./ProtectedRouter";
+import AddProductPages from "../pages/AddProductPages";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePages />} />
           <Route path="/products/:id" element={<DetailPages />} />
+          <Route path="/add-products" element={<AddProductPages />} />
         </Route>
       </Route>
 

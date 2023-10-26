@@ -5,13 +5,22 @@ import NotFoundPages from "../pages/NotFoundPages";
 import DetailPages from "../pages/DetailPages";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PrivateRouter from "./PrivateRouter";
+import LoginPage from "../pages/LoginPage";
+import ProtectedRouter from "./ProtectedRouter";
 
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePages />} />
-        <Route path="/products/:id" element={<DetailPages />} />
+      <Route path="/" element={<PrivateRouter />}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePages />} />
+          <Route path="/products/:id" element={<DetailPages />} />
+        </Route>
+      </Route>
+
+      <Route path="/" element={<ProtectedRouter />}>
+        <Route path="/login" element={<LoginPage />} />
       </Route>
 
       <Route>

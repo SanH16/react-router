@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDebounce } from "../hooks/useDebounce";
 import InputCategory from "../components/InputCategory";
+import auth from "../utils/auth";
 
 function HomePages() {
   const [product, setProduct] = useState();
@@ -43,6 +44,10 @@ function HomePages() {
     <div>
       <h1>Google E-Commerce</h1>
       <p>Our Products</p>
+
+      <Link to="/login">
+        <button onClick={() => auth.logout()}>Logout</button>
+      </Link>
 
       <div>
         <label htmlFor="queryInputSearch">Search Products</label>

@@ -1,12 +1,15 @@
 import React from "react";
 import NotFound from "../components/NotFound";
+import { Link } from "react-router-dom";
 
 function NotFoundPages() {
   return (
     <>
       <div className="wrapper">
         <NotFound />
-        <h1 className="text">Not Found</h1>
+        <Link to={"/"}>
+          <h1 className="text">404 | Not Found</h1>
+        </Link>
       </div>
     </>
   );

@@ -22,7 +22,7 @@ function NotFound() {
         options={{
           background: {
             color: {
-              value: "#3A3042",
+              value: "#11151C",
             },
           },
           fpsLimit: 120,

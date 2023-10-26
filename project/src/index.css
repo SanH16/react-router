@@ -3,10 +3,41 @@
 }
 
 .text {
+  margin: 50vh 25%;
   background-color: transparent;
   color: white;
   position: absolute;
   text-align: center;
-  top: 40%;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  width: 50%;
+}
+body {
+  margin: 0% 10%;
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+a {
+  color: #11151c;
+  text-decoration: none;
+}
+
+.products_item img {
+  width: auto;
+  height: 150px;
+}
+
+img {
+  border-radius: 20px;
+  cursor: pointer;
 }

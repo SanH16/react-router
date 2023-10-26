@@ -22,7 +22,7 @@ const taskSlice = createSlice({
 
     changeTask: (state, { payload }) => {
       const { id, text, done } = payload;
-      if (text) {
+      if (text || text === "") {
         state.map((task) => {
           if (task.id === id) {
             task.text = text;

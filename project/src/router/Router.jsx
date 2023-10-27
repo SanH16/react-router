@@ -14,11 +14,11 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={<PrivateRouter />}>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePages />} />
-          <Route path="/products/:id" element={<DetailPages />} />
-          <Route path="/add-products" element={<AddProductPages />} />
-        </Route>
+        {/* <Route path="/" element={<Layout />}> */}
+        <Route index element={<HomePages />} />
+        <Route path="/products/:id" element={<DetailPages />} />
+        <Route path="/add-products" element={<AddProductPages />} />
+        {/* </Route> */}
       </Route>
 
       <Route path="/" element={<ProtectedRouter />}>

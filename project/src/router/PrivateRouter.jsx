@@ -2,8 +2,11 @@ import React from "react";
 import auth from "../utils/auth";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import UnauthorizedPages from "../pages/UnauthorizedPages";
+import Layout from "../layout/layout";
 
 export default function PrivateRouter() {
+  /**
+   * ! Bug belum di fix untuk redirect router
   const location = useLocation();
   const { pathname } = location;
 
@@ -13,10 +16,16 @@ export default function PrivateRouter() {
   }
 
   console.log(pathname);
+   */
+
   if (auth.isAuthorized()) {
-    return <Outlet />; // jika sudah login, navigate home
+    return (
+      <Layout>
+        <Outlet />; // jika sudah login, navigate home
+      </Layout>
+    );
   }
 
-  // return <UnauthorizedPages />; //jika belum, navigate ke page unauthorized
-  return <Navigate to={path} />;
+  return <UnauthorizedPages />; //jika belum, navigate ke page unauthorized
+  // return <Navigate to={path} />;
 }

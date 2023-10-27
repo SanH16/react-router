@@ -1,10 +1,10 @@
 import React from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const { search } = useLocation();
+  // const { search } = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +22,10 @@ function LoginPage() {
       const { token } = await res.json();
       auth.storeAuthCredential(token);
 
+      return navigate("/");
+
+      /** 
+       * ! Bug belum di fix untuk redirect route
       let returnTo = "/";
       // console.log({returnTo});
 
@@ -37,6 +41,7 @@ function LoginPage() {
       if (returnTo) returnTo += redirectTo;
 
       return navigate(returnTo);
+       */
     });
   };
   return (

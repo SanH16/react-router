@@ -4,6 +4,7 @@ const initialState = {
   mode: "light",
   language: "eng",
 };
+
 const toogleTheme = createSlice({
   name: "theme",
   initialState,
@@ -13,6 +14,8 @@ const toogleTheme = createSlice({
     },
   },
 });
+
+export const selectTheme = (state) => state.theme;
 
 export const { toogleThemeMode } = toogleTheme.actions;
 export default toogleTheme.reducer;

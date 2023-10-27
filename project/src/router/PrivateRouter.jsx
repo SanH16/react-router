@@ -16,6 +16,7 @@ export default function PrivateRouter() {
   if (auth.isAuthorized()) {
     return <Outlet />; // jika sudah login, navigate home
   }
+
   // return <UnauthorizedPages />; //jika belum, navigate ke page unauthorized
   return <Navigate to={path} />;
 }

@@ -3,13 +3,12 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import HomePages from "../pages/HomePages";
 import NotFoundPages from "../pages/NotFoundPages";
 import DetailPages from "../pages/DetailPages";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import PrivateRouter from "./PrivateRouter";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRouter from "./ProtectedRouter";
 import AddProductPages from "../pages/AddProductPages";
 import TaskPages from "../pages/TaskPages";
+import Layout from "../layout/layout";
 
 function Router() {
   return (
@@ -46,14 +45,14 @@ function Router() {
   );
 }
 
-function Layout() {
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </>
-  );
-}
+// function Layout() {
+//   return (
+//     <>
+//       <Navbar />
+//       <Outlet />
+//       <Footer />
+//     </>
+//   );
+// }
 
 export default Router;

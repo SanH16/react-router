@@ -5,6 +5,7 @@ import auth from "../utils/auth";
 function LoginPage() {
   const navigate = useNavigate();
   const { search } = useLocation();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -22,12 +23,18 @@ function LoginPage() {
       auth.storeAuthCredential(token);
 
       let returnTo = "/";
+      // console.log(returnTo);
+
       const params = new URLSearchParams(search);
       const redirectTo = params.get("return_to");
 
-      if (returnTo) {
-        returnTo += redirectTo;
-      }
+      // if (location.pathname === null) {
+      //   return navigate("/");
+      // }
+      // console.log(redirectTo);
+
+      // if (params) returnTo += redirectTo;
+      if (returnTo) returnTo += redirectTo;
 
       return navigate(returnTo);
     });

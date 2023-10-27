@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useDebounce } from "../hooks/useDebounce";
 import InputCategory from "../components/InputCategory";
+import { useDispatch } from "react-redux";
+import { useDebounce } from "../hooks/useDebounce";
+import { Link } from "react-router-dom";
+import { addToCart } from "../store/cart";
 
 function HomePages() {
   const [product, setProduct] = useState();
   const [_payloadSearch, setPayloadSearch] = useState({ query: "", category: "" });
   const payloadSearch = useDebounce(_payloadSearch, 1000);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -41,9 +44,6 @@ function HomePages() {
 
   return (
     <div>
-      <h1>Google E-Commerce</h1>
-      <p>Our Products</p>
-
       <div>
         <label htmlFor="queryInputSearch">Search Products</label>
         <input
@@ -72,6 +72,7 @@ function HomePages() {
               <Link to={`/products/${item.id}`}>
                 <img src={item.thumbnail} alt={item.title} />
               </Link>
+              <button onClick={() => dispatch(addToCart(item))}>+ cart</button>
             </div>
           ))}
         </div>

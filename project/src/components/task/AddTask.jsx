@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addTask } from "../../store/tasks/slice";
+import { addTask } from "../../store/tasks";
 import { useDispatch } from "react-redux";
 
 let nextId = 3;

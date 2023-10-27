@@ -3,8 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Content from "../components/Content";
 import { useSelector } from "react-redux";
-import { selectTheme } from "../store/theme/toogleSlice";
 import { useLayoutEffect } from "react";
+import { selectTheme } from "../store/theme";
+import Header from "../components/Header";
 
 export default function Layout() {
   const { mode } = useSelector(selectTheme);
@@ -21,6 +22,7 @@ export default function Layout() {
   return (
     <div>
       <Navbar />
+      <Header />
       <Content />
       <Footer />
     </div>

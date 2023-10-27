@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeTask, deleteTask, selectTask } from "../../store/tasks/slice";
+import { changeTask, deleteTask, selectTask } from "../../store/tasks";
 
 export default function TaskList() {
   const tasks = useSelector(selectTask);

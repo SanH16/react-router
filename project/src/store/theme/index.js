@@ -5,12 +5,14 @@ const initialState = {
   language: "eng",
 };
 
+export const isDarkMode = (mode) => mode === "dark";
+
 const toogleTheme = createSlice({
   name: "theme",
   initialState,
   reducers: {
     toogleThemeMode: (state) => {
-      state.mode = state.mode === "light" ? "dark" : "light";
+      state.mode = isDarkMode(state.mode) ? "light" : "dark";
     },
   },
 });

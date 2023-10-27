@@ -12,7 +12,6 @@ function DetailPages() {
   }, [id]);
   return (
     <div>
-      <h1>Our Product Digital</h1>
       {product ? (
         <div>
           <h3>{product.title}</h3>

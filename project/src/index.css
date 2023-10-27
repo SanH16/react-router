@@ -40,7 +40,7 @@ body {
 }
 
 a {
-  color: #11151c;
+  /* color: #11151c; */
   text-decoration: none;
 }
 
@@ -66,7 +66,35 @@ img {
   background-size: contain;
 } */
 
+.navbar {
+  display: flex;
+  height: 300px;
+  margin: 20px 0;
+  align-items: center;
+  gap: 10rem;
+}
+
 .theme-dark {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+}
+.cart-root {
+  position: relative;
+}
+
+.cart-total {
+  position: absolute;
+  font-size: 20px;
+}
+
+.cart-svg {
+  height: 50px;
+}
+
+.cart-list {
+  /* position: absolute; */
+  overflow: scroll;
+  height: 200px;
+  top: 30px;
+  right: 0px;
 }

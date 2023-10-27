@@ -23,7 +23,7 @@ function LoginPage() {
       auth.storeAuthCredential(token);
 
       let returnTo = "/";
-      // console.log(returnTo);
+      // console.log({returnTo});
 
       const params = new URLSearchParams(search);
       const redirectTo = params.get("return_to");
@@ -31,7 +31,7 @@ function LoginPage() {
       // if (location.pathname === null) {
       //   return navigate("/");
       // }
-      // console.log(redirectTo);
+      // console.log({redirectTo});
 
       // if (params) returnTo += redirectTo;
       if (returnTo) returnTo += redirectTo;

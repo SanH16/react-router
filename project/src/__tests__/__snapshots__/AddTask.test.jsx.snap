@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddTasks > should match with snapshots 1`] = `
+<div>
+  <input
+    placeholder="Add task"
+    value=""
+  />
+  <button>
+    Add
+  </button>
+</div>
+`;

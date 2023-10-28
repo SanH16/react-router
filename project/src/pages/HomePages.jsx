@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useDebounce } from "../hooks/useDebounce";
 import { Link } from "react-router-dom";
 import { addToCart } from "../store/cart";
+import { APIproducts } from "../apis/APIProduct";
 
 function HomePages() {
   const [product, setProduct] = useState();
@@ -11,10 +12,14 @@ function HomePages() {
   const payloadSearch = useDebounce(_payloadSearch, 1000);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   fetch("https://dummyjson.com/products")
+  //     .then((res) => res.json())
+  //     .then(setProduct);
+  // }, []);
+
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then(setProduct);
+    APIproducts.getProducts().then(setProduct);
   }, []);
 
   useEffect(() => {

@@ -1,29 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { fetchGetPostById, selectPost } from "../store/postSlice";
+import { convertUTCtoLocalDate } from "../utils/convertUTCtoLocalDate";
 
 function DetailPages() {
-  const [product, setProduct] = useState();
+  const statePost = useSelector(selectPost);
+  const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
-      .then((res) => res.json())
-      .then(setProduct);
-  }, [id]);
+    dispatch(fetchGetPostById(id));
+  }, [dispatch, id]);
+
+  console.log(statePost);
+
   return (
     <div>
-      {product ? (
-        <div>
-          <h3>{product.title}</h3>
-          <p>{product.category}</p>
-          <h3>{product.description}</h3>
-          <img src={product.thumbnail} alt={product.title} />
-          <p>Price ${product.price}</p>
-          <p>Rating {product.rating}</p>
+      {statePost.status === "pending" && <p>loading bos..</p>}
+      {statePost.status === "success" && (
+        <div className="products_item">
+          <h5>{statePost.data.text}</h5>
+          <p>🩷 {statePost.data.likes}</p>
+          <img src={statePost.data.image} alt={statePost.data.image} />
+          <p>Updated on {convertUTCtoLocalDate(new Date(statePost.data.publishDate))}</p>
         </div>
-      ) : (
+      )}
+
+      {statePost.status === "failed" && (
         <div>
-          <p>loading..</p>
+          <p>someting went wrong</p>
+          <p>{statePost.message}</p>
         </div>
       )}
       <Link to={"/"}>

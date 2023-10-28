@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import persistStore from "redux-persist/lib/persistStore";
 import persistReducer from "redux-persist/lib/persistReducer";
 import storage from "redux-persist/lib/storage";
@@ -7,9 +6,13 @@ import storage from "redux-persist/lib/storage";
 import tasks from "./tasks";
 import theme from "./theme";
 import cart from "./cart";
+import posts from "./posts";
+import post from "./postSlice";
 
 const rootRedurcers = combineReducers({
   tasks,
+  post,
+  posts,
   theme,
   cart,
 });
@@ -23,9 +26,7 @@ const store = configureStore({
   reducer: pReducer,
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
-      serializableCheck: {
-        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
     });
   },
 });

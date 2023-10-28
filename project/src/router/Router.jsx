@@ -3,23 +3,23 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import HomePages from "../pages/HomePages";
 import NotFoundPages from "../pages/NotFoundPages";
 import DetailPages from "../pages/DetailPages";
-import PrivateRouter from "./PrivateRouter";
+// import PrivateRouter from "./PrivateRouter";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRouter from "./ProtectedRouter";
 import AddProductPages from "../pages/AddProductPages";
 import TaskPages from "../pages/TaskPages";
-import Layout from "../layout/layout";
+// import Layout from "../layout/layout";
 
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<PrivateRouter />}>
-        {/* <Route path="/" element={<Layout />}> */}
-        <Route index element={<HomePages />} />
-        <Route path="/products/:id" element={<DetailPages />} />
-        <Route path="/add-products" element={<AddProductPages />} />
-        {/* </Route> */}
-      </Route>
+      {/* <Route path="/" element={<PrivateRouter />}> */}
+      {/* <Route path="/" element={<Layout />}> */}
+      <Route index element={<HomePages />} />
+      <Route path="/articles/:id" element={<DetailPages />} />
+      <Route path="/add-products" element={<AddProductPages />} />
+      {/* </Route> */}
+      {/* </Route> */}
 
       <Route path="/" element={<ProtectedRouter />}>
         <Route path="/login" element={<LoginPage />} />

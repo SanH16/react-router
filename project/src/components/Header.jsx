@@ -4,13 +4,18 @@ import { useLocation } from "react-router-dom";
 const breadcrumbs = [
   {
     path: "/",
-    name: "Google E-Commerce",
-    description: "Our Products",
+    name: "Home",
+    description: "Articles",
   },
   {
-    path: "/products",
-    name: "Products Details",
-    description: "Our Products Digital",
+    path: "/articles",
+    name: "Articles Details",
+    description: "Articles",
+  },
+  {
+    path: "/add-articles",
+    name: "Add New Articles",
+    description: "article dummyapi.io",
   },
 ];
 function Header() {

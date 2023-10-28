@@ -4,6 +4,7 @@ import auth from "../utils/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTheme, toogleThemeMode } from "../store/theme";
 import Cart from "./cart/Cart";
+import { Button } from "@mui/material";
 
 function Navbar() {
   const { mode } = useSelector(selectTheme);
@@ -14,10 +15,15 @@ function Navbar() {
       <nav className="navbar">
         {/* <h1>Saya Navbar</h1> */}
         <Link to="/login">
-          <button onClick={() => auth.logout()}>Logout</button>
+          <Button onClick={() => auth.logout()}>Logout</Button>
         </Link>
-        <button onClick={() => dispatch(toogleThemeMode())}>{mode === "light" ? "🌚" : "🌞"}</button>
+        <Button variant="outlined" color="secondary" onClick={() => dispatch(toogleThemeMode())}>
+          {mode === "light" ? "Dark 🌚" : "Light🌞"}
+        </Button>
         <Cart />
+        <Link to="/add-articles">
+          <Button placeholder="Add articles">Add article</Button>
+        </Link>
       </nav>
       <hr />
     </>
